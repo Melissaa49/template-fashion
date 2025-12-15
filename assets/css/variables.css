@@ -1,0 +1,14 @@
+:root{
+  --bg: #fffaf3;
+  --section: #f6efe6;
+  --section-2: #f2e4d3;
+
+  --text: #3b2a1a;
+  --text-soft: #6b4a2d;
+
+  --primary: #6b3f1d;
+
+  --radius-arch: 220px 220px 24px 24px;
+
+  --container: 1200px;
+}
