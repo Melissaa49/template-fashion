@@ -54,6 +54,8 @@ const { openCart } = useCartUI()
 <style scoped>
 .header {
   padding: 1.2rem 0;
+    color: #000;
+
 }
 
 .header-inner {
