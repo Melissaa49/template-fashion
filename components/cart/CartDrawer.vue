@@ -93,6 +93,12 @@ const { cart, increase, decrease } = useCart()
   font-size: 1.25rem;
   font-weight: 500;
 }
+.drawer-footer {
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,.85), #fff);
+  backdrop-filter: blur(6px);
+}
 
 /* CLOSE BUTTON */
 .close-btn {
@@ -104,6 +110,8 @@ const { cart, increase, decrease } = useCart()
   background: #fff;
   cursor: pointer;
   transition: all .25s ease;
+    margin-left: auto;
+
 }
 
 .close-btn span {

@@ -244,6 +244,12 @@ const filtered = computed(() => {
   line-height: 1.15;
   margin: 0;
 }
+:deep(.filters),
+:deep(.filter-btn),
+:deep(.filter-btn button),
+:deep(.filter-btn a) {
+  color: #000;
+}
 
 /* ===================== */
 /* DESKTOP */

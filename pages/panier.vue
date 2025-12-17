@@ -196,7 +196,18 @@ const total = computed(() =>
     gap: 2.8rem;
     padding: 2.8rem 0;
   }
+.panier-right {
+    position: relative;
+    padding-bottom: 5.5rem; /* espace pour le bouton sticky */
+  }
 
+  .btn-primary {
+    position: sticky;
+    bottom: calc(env(safe-area-inset-bottom) + 1rem);
+    background: #fff;
+    z-index: 10;
+    box-shadow: 0 -8px 24px rgba(0,0,0,.08);
+  }
   /* le séparateur devient horizontal */
   .divider {
     height: 1px;
