@@ -56,6 +56,7 @@ const { openCart } = useCartUI()
   padding: 1.2rem 0;
     color: #000;
 
+  
 }
 
 .header-inner {
@@ -89,7 +90,11 @@ const { openCart } = useCartUI()
   font-size: 1.3rem;
   cursor: pointer;
 }
-
+/* Boutons */
+.cart-btn,
+.burger {
+  color: #000;
+}
 .cart-badge {
   position: absolute;
   top: -6px;
@@ -106,8 +111,12 @@ const { openCart } = useCartUI()
   background: transparent;
   font-size: 1.6rem;
   cursor: pointer;
+  
 }
-
+:deep(.fa-solid),
+:deep(.fa-bag-shopping) {
+  color: #000;
+}
 @media (min-width: 900px) {
   .nav { display: flex; }
   .burger { display: none; }
