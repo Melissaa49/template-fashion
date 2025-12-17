@@ -1,56 +1,84 @@
 <template>
   <!-- ===================== -->
-  <!-- HERO (2 VAGUES) -->
+  <!-- HERO -->
   <!-- ===================== -->
   <WaveSection
     centerColor="var(--section)"
     topColor="var(--bg)"
     bottomColor="var(--bg)"
   >
-    <div class="container hero">
-      <div class="hero-left">
-        <h1 class="page-title">
+    <div class="container hero-scene">
+      <!-- TEXTE -->
+      <div class="hero-text">
+        <span class="brand">Mode Élégante</span>
+
+        <h1 class="hero-title">
           Nouvelle<br />
           collection
         </h1>
 
-        <p class="hero-text">
-          Découvrez les dernières tendances de la saison
+        <p class="hero-sub">
+          Découvrez les dernières tendances
         </p>
 
-        <a class="link" href="/collections/robes">
+        <NuxtLink to="/collections/robes" class="hero-link">
           Découvrir →
-        </a>
+        </NuxtLink>
       </div>
 
-      <div class="hero-right">
-        <div class="hero-arch">
-          <img
-            src="/images/gallery-1.jpeg"
-            alt="Robe beige"
-          />
-        </div>
+      <!-- IMAGE -->
+      <div class="hero-arch">
+        <img
+          src="/images/gallery-3.png"
+          alt="Nouvelle collection"
+        />
       </div>
     </div>
   </WaveSection>
 
   <!-- ===================== -->
-  <!-- COLLECTIONS POPULAIRES -->
-  <!-- (PAS DE VAGUE) -->
+  <!-- COLLECTIONS -->
   <!-- ===================== -->
   <WaveSection centerColor="var(--bg)">
     <div class="container">
-      <SectionTitle>
+      <h2 class="section-title">
         Collections populaires
-      </SectionTitle>
+      </h2>
 
-      <ProductGrid :products="popular" />
+      <div class="collections">
+        <NuxtLink to="/collections/robes" class="collection-card">
+          <div class="arch">
+            <img src="/images/gallery-6.png" alt="Robes" />
+          </div>
+          <span>Combinaison</span>
+        </NuxtLink>
+
+        <NuxtLink to="/collections/robes" class="collection-card">
+          <div class="arch">
+            <img src="/images/gallery-1.png" alt="Turtleneck" />
+          </div>
+          <span>Robes</span>
+        </NuxtLink>
+
+        <NuxtLink to="/collections/robes" class="collection-card">
+          <div class="arch">
+            <img src="/images/gallery-7.png" alt="Satines" />
+          </div>
+          <span>Veste</span>
+        </NuxtLink>
+
+          <NuxtLink to="/collections/robes" class="collection-card">
+          <div class="arch">
+            <img src="/images/gallery-8.png" alt="Robes" />
+          </div>
+          <span>Ensemble</span>
+        </NuxtLink>
+      </div>
     </div>
   </WaveSection>
 
   <!-- ===================== -->
   <!-- NEWSLETTER -->
-  <!-- (TRANSITION DOUCE) -->
   <!-- ===================== -->
   <WaveSection
     centerColor="var(--section-2)"
@@ -62,59 +90,60 @@
 
 <script setup lang="ts">
 import WaveSection from '~/components/ui/WaveSection.vue'
-import SectionTitle from '~/components/ui/SectionTitle.vue'
-import ProductGrid from '~/components/product/ProductGrid.vue'
 import NewsletterForm from '~/components/newsletter/NewsletterForm.vue'
-import type { Product } from '~/components/product/ProductCard.vue'
-
-const popular: Product[] = [
-  {
-    id: '1',
-    title: 'Turtnek',
-    price: 0,
-    image: '/images/gallery-1.jpeg',
-  },
-  {
-    id: '2',
-    title: 'Callorces',
-    price: 0,
-    image: '/images/gallery-1.jpeg',
-  },
-  {
-    id: '3',
-    title: 'Satines',
-    price: 0,
-    image: '/images/gallery-1.jpeg',
-  },
-]
 </script>
 
 <style scoped>
-/* ===================== */
-/* HERO */
-/* ===================== */
+/* ================================================= */
+/* HERO — MOBILE FIRST (corrigé)                     */
+/* ================================================= */
 
-.hero {
-  display: grid;
-  gap: 2.5rem;
-  align-items: center;
+.hero-scene {
+  position: relative;
+  min-height: 520px;     /* ✔ mobile plus compact */
+  padding-top: 3rem;
 }
 
+/* TEXTE */
 .hero-text {
-  margin-top: 1rem;
-  max-width: 28ch;
+  position: relative;
+  z-index: 2;
+  max-width: 26ch;
 }
 
-.hero-right {
-  display: flex;
-  justify-content: flex-end;
+.brand {
+  font-size: .8rem;
+  opacity: .6;
 }
 
+.hero-title {
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  line-height: 1.05;
+  margin-top: .6rem;
+}
+
+.hero-sub {
+  margin-top: .8rem;
+  max-width: 24ch;
+}
+
+.hero-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-weight: 500;
+}
+
+/* IMAGE — MOBILE */
 .hero-arch {
-  width: min(420px, 90vw);
+  position: absolute;
+  bottom: 2.2rem;              /* ✔ image remontée */
+  left: 65%;
+  transform: translateX(-50%);
+  width: min(250px, 65vw);     /* ✔ image plus présente */
   border-radius: 240px 240px 24px 24px;
   overflow: hidden;
-  background: #e7d6c4;
+  background: var(--section-2);
+  z-index: 1;
 }
 
 .hero-arch img {
@@ -122,13 +151,77 @@ const popular: Product[] = [
   display: block;
 }
 
-/* ===================== */
-/* DESKTOP */
-/* ===================== */
+/* ================================================= */
+/* DESKTOP — STRICTEMENT INCHANGÉ                    */
+/* ================================================= */
 
 @media (min-width: 900px) {
-  .hero {
-    grid-template-columns: 1.1fr 0.9fr;
+  .hero-scene {
+    min-height: 640px;
+    padding-top: 4rem;
+  }
+
+  .hero-arch {
+     width: 100%;
+    max-width: 420px;
+    margin-left: auto;
+    border-radius: 240px 240px 32px 32px;
+    overflow: hidden;
+    background: #e7d6c4;
+  }
+}
+
+/* ================================================= */
+/* COLLECTIONS                                      */
+/* ================================================= */
+
+.collections {
+  display: grid;
+  gap: 1.6rem;
+  margin-top: 2.2rem;
+}
+
+.collection-card {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.collection-card .arch {
+  aspect-ratio: 3 / 4;
+  border-radius: 200px 200px 24px 24px;
+  overflow: hidden;
+  background: var(--section-2);
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collection-card span {
+  display: block;
+  margin-top: .8rem;
+  font-size: .95rem;
+}
+
+/* MOBILE — plus grands, plus hauts */
+@media (max-width: 899px) {
+  .collections {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+
+  .collection-card .arch {
+    border-radius: 180px 180px 22px 22px;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 900px) {
+  .collections {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>

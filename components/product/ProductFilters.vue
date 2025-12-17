@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-const chips = ['Toutes', 'Soie', 'Lin', 'Coton', 'Été']
+const chips = ['Toutes', 'Soie', 'Lin', 'Coton']
 
 defineProps<{ modelValue: string }>()
 defineEmits<{ (e:'update:modelValue', v: string): void }>()
@@ -24,7 +24,8 @@ defineEmits<{ (e:'update:modelValue', v: string): void }>()
   display:flex;
   gap: .8rem;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+      justify-content: space-around
 }
 
 .chip{

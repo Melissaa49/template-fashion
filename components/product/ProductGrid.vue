@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import ProductCard, { type Product } from './ProductCard.vue'
+import type { Product } from '~/types/Product'
 
 defineProps<{ products: Product[] }>()
 </script>
